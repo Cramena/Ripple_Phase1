@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum RotationDirection
+{
+	None,
+	Left,
+	Right
+}
+
 public class ButterflyController : MonoBehaviour
 {
 	//-----PRIVATE-----
@@ -29,6 +36,22 @@ public class ButterflyController : MonoBehaviour
 		else if (Input.GetKeyUp(KeyCode.Z))
 		{
 			butterfly.StartDeccelerating();
+		}
+		if (Input.GetKeyDown(KeyCode.Q))
+		{
+			butterfly.StartRotating(RotationDirection.Left);
+		}
+		else if (Input.GetKeyUp(KeyCode.Q))
+		{
+			butterfly.StartRotationEnd();
+		}
+		if (Input.GetKeyDown(KeyCode.D))
+		{
+			butterfly.StartRotating(RotationDirection.Right);
+		}
+		else if (Input.GetKeyUp(KeyCode.D))
+		{
+			butterfly.StartRotationEnd();
 		}
 	}
 }
