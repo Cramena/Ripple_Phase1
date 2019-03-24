@@ -9,15 +9,30 @@ enum MoveState
 	Deccelerating
 }
 
+enum RotateState
+{
+	Idle,
+	Moving,
+	Deccelerating
+}
+
 public class ButterflyBehavior : MonoBehaviour
 {
 	//-----PUBLIC-----
 	//PARAMETERS
-	[Header("Parameters")]
+	[Header("PARAMETERS")]
+	[Space()]
+	[Header("Movement: ")]
 	public float maxSpeed;
 	public AnimationCurve accelerationCurve;
 	public float accelerationRate = 1;
 	public float deccelerationRate = 1;
+	[Space()]
+	[Header("Rotation: ")]
+	public float rotationMaxSpeed;
+	public AnimationCurve rotationAccelerationCurve;
+	public float rotationAccelerationRate = 1;
+	public float rotationDeccelerationRate = 1;
 
 	//-----PRIVATE-----
 	//SELF REFERENCES
@@ -25,7 +40,11 @@ public class ButterflyBehavior : MonoBehaviour
 	Transform self;
 	//PARAMETERS
 	MoveState moveState = MoveState.Idle;
+	RotateState rotateState = RotateState.Idle;
+	RotationDirection currentDirection = RotationDirection.None;
 	float speedTimer;
+	float rotationSpeedTimer;
+	int directionFactor;
 
 	//DEBUG TEMP
 	float currentSpeed;
@@ -44,9 +63,22 @@ public class ButterflyBehavior : MonoBehaviour
 		{
 			MoveForward();
 		}
+		if (rotateState != RotateState.Idle)
+		{
+			Rotate();
+		}
 	}
 
 	private void Update()
+	{
+		ManageMoveState();
+		ManageRotationState();
+
+		currentSpeed = body.velocity.magnitude;
+	}
+
+	#region Transform states management
+	void ManageMoveState()
 	{
 		switch (moveState)
 		{
@@ -74,9 +106,36 @@ public class ButterflyBehavior : MonoBehaviour
 			default:
 				break;
 		}
-
-		currentSpeed = body.velocity.magnitude;
 	}
+
+	void ManageRotationState()
+	{
+		switch (rotateState)
+		{
+			case RotateState.Deccelerating:
+				if (Mathf.Abs(rotationSpeedTimer) > 0.1f)
+				{
+					rotationSpeedTimer -= Time.deltaTime * Mathf.Sign(rotationSpeedTimer) * rotationDeccelerationRate;
+				}
+				else
+				{
+					rotationSpeedTimer = 0;
+					StopRotating();
+				}
+				break;
+			case RotateState.Moving:
+				if ((rotationSpeedTimer < 1 && currentDirection == RotationDirection.Right) || 
+					(rotationSpeedTimer > -1 && currentDirection == RotationDirection.Left))
+				{
+					rotationSpeedTimer += Time.deltaTime * directionFactor * rotationAccelerationRate;
+				}
+				break;
+			default:
+				break;
+		}
+		rotationSpeedTimer = Mathf.Clamp(rotationSpeedTimer, -1, 1);
+	}
+	#endregion
 
 	#region Move state switching
 	public void StartMovingForward()
@@ -102,4 +161,42 @@ public class ButterflyBehavior : MonoBehaviour
 		body.velocity = self.forward * accelerationCurve.Evaluate(speedTimer) * maxSpeed;
 	}
 	#endregion
+
+	#region Rotation state switching
+	public void StartRotating(RotationDirection _direction)
+	{
+		if (_direction == currentDirection) return;
+
+		currentDirection = _direction;
+		rotateState = RotateState.Moving;
+
+		if (currentDirection == RotationDirection.Left)
+		{
+			directionFactor = -1;
+		}
+		else
+		{
+			directionFactor = 1;
+		}
+	}
+
+	public void StartRotationEnd()
+	{
+		rotateState = RotateState.Deccelerating;
+	}
+
+	public void StopRotating()
+	{
+		currentDirection = RotationDirection.None;
+		rotateState = RotateState.Idle;
+	}
+	#endregion
+
+	#region Rotation method
+	void Rotate()
+	{
+		self.rotation *= Quaternion.AngleAxis(rotationAccelerationCurve.Evaluate(rotationSpeedTimer) * rotationMaxSpeed, Vector3.up);
+	}
+	#endregion
+
 }
