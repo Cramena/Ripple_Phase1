@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum RotationDirection
+{
+	None,
+	Left,
+	Right
+}
+
 public class ButterflyController : MonoBehaviour
 {
 	//-----PRIVATE-----
@@ -22,6 +29,7 @@ public class ButterflyController : MonoBehaviour
 
 	void GetInput()
 	{
+		//Move forward
 		if (Input.GetKeyDown(KeyCode.Z))
 		{
 			butterfly.StartMovingForward();
@@ -29,6 +37,56 @@ public class ButterflyController : MonoBehaviour
 		else if (Input.GetKeyUp(KeyCode.Z))
 		{
 			butterfly.StartDeccelerating();
+		}
+
+		//Move backward
+		if (Input.GetKeyDown(KeyCode.S))
+		{
+			butterfly.StartMovingForward();
+		}
+		else if (Input.GetKeyUp(KeyCode.S))
+		{
+			butterfly.StartDeccelerating();
+		}
+
+		//Turn left
+		if (Input.GetKeyDown(KeyCode.Q))
+		{
+			butterfly.StartRotating(RotationDirection.Left);
+		}
+		else if (Input.GetKeyUp(KeyCode.Q))
+		{
+			CheckOtherDirection(RotationDirection.Left);
+		}
+
+		//Turn right
+		if (Input.GetKeyDown(KeyCode.D))
+		{
+			butterfly.StartRotating(RotationDirection.Right);
+		}
+		else if (Input.GetKeyUp(KeyCode.D))
+		{
+			CheckOtherDirection(RotationDirection.Right);
+		}
+	}
+
+	/// <summary>
+	/// If the other button is pressed, rotates in the opposite direction. Otherwise, stops rotating.
+	/// </summary>
+	/// <param name="_direction"></param>
+	void CheckOtherDirection(RotationDirection _direction)
+	{
+		if (_direction == RotationDirection.Left && Input.GetKey(KeyCode.D))
+		{
+			butterfly.StartRotating(RotationDirection.Right);
+		}
+		else if (_direction == RotationDirection.Right && Input.GetKey(KeyCode.Q))
+		{
+			butterfly.StartRotating(RotationDirection.Left);
+		}
+		else
+		{
+			butterfly.StartRotationEnd();
 		}
 	}
 }
