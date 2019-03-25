@@ -9,6 +9,14 @@ public enum RotationDirection
 	Right
 }
 
+public enum StrafeDirection
+{
+	None,
+	Left,
+	Right,
+	Backward
+}
+
 public class ButterflyController : MonoBehaviour
 {
 	//-----PRIVATE-----
@@ -49,25 +57,35 @@ public class ButterflyController : MonoBehaviour
 			butterfly.StartDeccelerating();
 		}
 
-		//Turn left
-		if (Input.GetKeyDown(KeyCode.Q))
+		//Strafe left
+		if (Input.GetKey(KeyCode.Q))
 		{
-			butterfly.StartRotating(RotationDirection.Left);
-		}
-		else if (Input.GetKeyUp(KeyCode.Q))
-		{
-			CheckOtherDirection(RotationDirection.Left);
+			butterfly.Strafe(StrafeDirection.Left);
 		}
 
-		//Turn right
-		if (Input.GetKeyDown(KeyCode.D))
+		if (Input.GetKey(KeyCode.D))
 		{
-			butterfly.StartRotating(RotationDirection.Right);
+			butterfly.Strafe(StrafeDirection.Right);
 		}
-		else if (Input.GetKeyUp(KeyCode.D))
-		{
-			CheckOtherDirection(RotationDirection.Right);
-		}
+		//Turn left
+		//if (Input.GetKeyDown(KeyCode.Q))
+		//{
+		//	butterfly.StartRotating(RotationDirection.Left);
+		//}
+		//else if (Input.GetKeyUp(KeyCode.Q))
+		//{
+		//	CheckOtherDirection(RotationDirection.Left);
+		//}
+
+		////Turn right
+		//if (Input.GetKeyDown(KeyCode.D))
+		//{
+		//	butterfly.StartRotating(RotationDirection.Right);
+		//}
+		//else if (Input.GetKeyUp(KeyCode.D))
+		//{
+		//	CheckOtherDirection(RotationDirection.Right);
+		//}
 	}
 
 	/// <summary>

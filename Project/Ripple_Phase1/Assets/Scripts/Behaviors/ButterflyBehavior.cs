@@ -18,6 +18,14 @@ enum RotateState
 
 public class ButterflyBehavior : MonoBehaviour
 {
+	class Movement
+	{
+		MoveState movementState = MoveState.Idle;
+		public AnimationCurve movementAccelerationCurve;
+		public AnimationCurve movementDeccelerationCurve;
+		public float movementAccelerationRate = 1;
+		public float movementDeccelerationRate = 1;
+	}
 	//-----PUBLIC-----
 	//PARAMETERS
 	[Header("PARAMETERS")]
@@ -75,10 +83,12 @@ public class ButterflyBehavior : MonoBehaviour
 		{
 			Rotate();
 		}
+		Move();
 	}
 
 	private void Update()
 	{
+
 		ManageMoveState();
 		ManageRotationState();
 		currentSpeed = body.velocity.magnitude;
@@ -270,14 +280,22 @@ public class ButterflyBehavior : MonoBehaviour
 	void Move()
 	{
 		body.velocity = movement;
+		movement = Vector3.zero;
 	}
 
-	//public void Strafe(StrafeDirection _direction)
-	//{
-	//	if (_direction == StrafeDirection.)
-	//}
+	public void Strafe(StrafeDirection _direction)
+	{
+		if (_direction == StrafeDirection.Left)
+		{
+			movement += -self.right * accelerationMaxSpeed;
+		}
+		if (_direction == StrafeDirection.Right)
+		{
+			movement += self.right * accelerationMaxSpeed;
+		}
+	}
 
 
 
-	
+
 }
