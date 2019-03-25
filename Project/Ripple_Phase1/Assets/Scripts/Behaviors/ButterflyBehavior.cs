@@ -42,12 +42,11 @@ public class ButterflyBehavior : MonoBehaviour
 	MoveState moveState = MoveState.Idle;
 	RotateState rotateState = RotateState.Idle;
 	RotationDirection currentDirection = RotationDirection.None;
+	//Movement parameters
 	float speedTimer;
+	//Rotation parameters
 	float rotationSpeedTimer;
 	int directionFactor;
-
-	//DEBUG TEMP
-	float currentSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -73,8 +72,6 @@ public class ButterflyBehavior : MonoBehaviour
 	{
 		ManageMoveState();
 		ManageRotationState();
-
-		currentSpeed = body.velocity.magnitude;
 	}
 
 	#region Transform states management
@@ -199,4 +196,9 @@ public class ButterflyBehavior : MonoBehaviour
 	}
 	#endregion
 
+
+	//float GetCorrespondingPointer(float _pointer, AnimationCurve _firstCurve, AnimationCurve _secondCurve)
+	//{
+	//	float value = _firstCurve.Evaluate()
+	//}
 }
