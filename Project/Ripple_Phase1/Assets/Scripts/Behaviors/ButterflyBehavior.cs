@@ -9,293 +9,131 @@ enum MoveState
 	Deccelerating
 }
 
-enum RotateState
-{
-	Idle,
-	Moving,
-	Deccelerating
-}
-
 public class ButterflyBehavior : MonoBehaviour
 {
-	class Movement
-	{
-		MoveState movementState = MoveState.Idle;
-		public AnimationCurve movementAccelerationCurve;
-		public AnimationCurve movementDeccelerationCurve;
-		public float movementAccelerationRate = 1;
-		public float movementDeccelerationRate = 1;
-	}
 	//-----PUBLIC-----
-	//PARAMETERS
-	[Header("PARAMETERS")]
-	[Space()]
-	[Header("Movement: ")]
-	public float accelerationMaxSpeed;
 	public AnimationCurve accelerationCurve;
 	public AnimationCurve deccelerationCurve;
-	public float accelerationRate = 1;
-	public float deccelerationRate = 1;
-	[Space()]
-	[Header("Rotation: ")]
-	public float rotationMaxSpeed;
-	public AnimationCurve rotationAccelerationCurve;
-	public float rotationAccelerationRate = 1;
-	public float rotationDeccelerationRate = 1;
+	public float acceleration;
+	public float maxSpeed;
+	public float accelerationSpeed = 1;
+	public float deccelerationSpeed = 1;
+	public float turnSpeed = 1;
+
+	//-----PUBLIC NON SERIALIZED-----
+	[System.NonSerialized] public Vector3 direction;
 
 	//-----PRIVATE-----
 	//SELF REFERENCES
 	Rigidbody body;
 	Transform self;
 	//PARAMETERS
-	MoveState moveState = MoveState.Idle;
-	RotateState rotateState = RotateState.Idle;
-	RotationDirection currentDirection = RotationDirection.None;
-
-	//Movement parameters
+	MoveState moveState;
+	Quaternion turnRotation;
 	Vector3 movement;
-	float speedTimer;
-	float accelerationIndex;
-	float deccelerationMaxSpeed;
-
-	//Rotation parameters
-	float rotationSpeedTimer;
-	int directionFactor;
+	Vector3 lastDirection;
+	float currentSpeed;
+	float accelerationTimer;
+	float deccelerationTimer;
+	float maxDeccelerationSpeed;
 
 	//-----DEBUG-----
-	float currentSpeed;
+	float debugSpeed;
 
-	// Start is called before the first frame update
-	void Start()
+	private void Start()
 	{
 		body = GetComponent<Rigidbody>();
 		self = transform;
 	}
 
-	// Update is called once per frame
-	void FixedUpdate()
-	{
-		if (moveState != MoveState.Idle)
-		{
-			MoveForward();
-		}
-		if (rotateState != RotateState.Idle)
-		{
-			Rotate();
-		}
-		Move();
-	}
-
 	private void Update()
 	{
-
-		ManageMoveState();
-		ManageRotationState();
-		currentSpeed = body.velocity.magnitude;
+		CheckState();
 	}
 
-	#region Transform states management
-	void ManageMoveState()
+	private void FixedUpdate()
+	{
+		ManageState();
+	}
+
+	void ManageState()
 	{
 		switch (moveState)
 		{
-			case MoveState.Deccelerating:
-				if (accelerationIndex < 1)
-				{
-					accelerationIndex += Time.deltaTime * deccelerationRate;
-				}
-				else
-				{
-					accelerationIndex = 1;
-					StopMoving();
-				}
-				break;
 			case MoveState.Moving:
-				if (accelerationIndex < 1)
+				if (direction.magnitude != 0)
 				{
-					accelerationIndex += Time.deltaTime * accelerationRate;
+					lastDirection = direction;
 				}
-				else
-				{
-					accelerationIndex = 1;
-				}
+				Rotate();
+				Move();
+				break;
+			case MoveState.Deccelerating:
+				Deccelerate();
 				break;
 			default:
 				break;
 		}
-
-
-		//switch (moveState)
-		//{
-		//	case MoveState.Deccelerating:
-		//		if (speedTimer > 0)
-		//		{
-		//			speedTimer -= Time.deltaTime * deccelerationRate;
-		//		}
-		//		else
-		//		{
-		//			speedTimer = 0;
-		//			StopMoving();
-		//		}
-		//		break;
-		//	case MoveState.Moving:
-		//		if (speedTimer < 1)
-		//		{
-		//			speedTimer += Time.deltaTime * accelerationRate;
-		//		}
-		//		else
-		//		{
-		//			speedTimer = 1;
-		//		}
-		//		break;
-		//	default:
-		//		break;
-		//}
 	}
 
-	void ManageRotationState()
+	void CheckState()
 	{
-		switch (rotateState)
+		if (body.velocity.magnitude == 0 && direction.magnitude == 0 && moveState != MoveState.Idle)
 		{
-			case RotateState.Deccelerating:
-				if (Mathf.Abs(rotationSpeedTimer) > 0.1f)
-				{
-					rotationSpeedTimer -= Time.deltaTime * Mathf.Sign(rotationSpeedTimer) * rotationDeccelerationRate;
-				}
-				else
-				{
-					rotationSpeedTimer = 0;
-					StopRotating();
-				}
-				break;
-			case RotateState.Moving:
-				if ((rotationSpeedTimer < 1 && currentDirection == RotationDirection.Right) ||
-					(rotationSpeedTimer > -1 && currentDirection == RotationDirection.Left))
-				{
-					rotationSpeedTimer += Time.deltaTime * directionFactor * rotationAccelerationRate;
-				}
-				break;
-			default:
-				break;
+			StartIdle();
 		}
-		rotationSpeedTimer = Mathf.Clamp(rotationSpeedTimer, -1, 1);
+		else if (body.velocity.magnitude != 0 && direction.magnitude == 0 && moveState != MoveState.Deccelerating)
+		{
+			StartDeccelerating();
+		}
+		else if (direction.magnitude != 0 && moveState != MoveState.Moving)
+		{
+			StartMoving();
+		}
+		debugSpeed = body.velocity.magnitude;
 	}
-	#endregion
 
-	#region Move state switching
-	public void StartMovingForward()
+	void StartMoving()
 	{
-		if (moveState == MoveState.Deccelerating)
-		{
-			accelerationIndex = GetCorrespondingIndex(accelerationIndex, deccelerationCurve, accelerationCurve);
-		}
-		else
-		{
-			accelerationIndex = 0;
-		}
 		moveState = MoveState.Moving;
-
+		accelerationTimer = 0;
 	}
 
-	public void StartDeccelerating()
+	void StartDeccelerating()
 	{
-		deccelerationMaxSpeed = accelerationCurve.Evaluate(accelerationIndex) * accelerationMaxSpeed;
-		accelerationIndex = 0;
 		moveState = MoveState.Deccelerating;
+		deccelerationTimer = 0;
+		maxDeccelerationSpeed = currentSpeed;
 	}
 
-	void StopMoving()
+	void StartIdle()
 	{
 		moveState = MoveState.Idle;
 		body.velocity = Vector3.zero;
 	}
-	#endregion
 
-	#region Speed modifying
-	void MoveForward()
-	{
-		if (moveState == MoveState.Moving)
-		{
-			movement += self.forward * accelerationCurve.Evaluate(accelerationIndex) * accelerationMaxSpeed;
-		}
-		else if (moveState == MoveState.Deccelerating)
-		{
-			movement += self.forward * deccelerationCurve.Evaluate(accelerationIndex) * deccelerationMaxSpeed;
-		}
-	}
-
-	#endregion
-
-	#region Rotation state switching
-	public void StartRotating(RotationDirection _direction)
-	{
-		if (_direction == currentDirection) return;
-
-		currentDirection = _direction;
-		rotateState = RotateState.Moving;
-
-		if (currentDirection == RotationDirection.Left)
-		{
-			directionFactor = -1;
-		}
-		else
-		{
-			directionFactor = 1;
-		}
-	}
-
-	public void StartRotationEnd()
-	{
-		rotateState = RotateState.Deccelerating;
-	}
-
-	public void StopRotating()
-	{
-		currentDirection = RotationDirection.None;
-		rotateState = RotateState.Idle;
-	}
-	#endregion
-
-	#region Rotation method
 	void Rotate()
 	{
-		self.rotation *= Quaternion.AngleAxis(rotationAccelerationCurve.Evaluate(rotationSpeedTimer) * rotationMaxSpeed, Vector3.up);
+		turnRotation = Quaternion.Euler(0, Mathf.Atan2(direction.x, direction.z) * 180 / Mathf.PI, 0);
+		transform.rotation = Quaternion.Slerp(transform.rotation, turnRotation, turnSpeed);
 	}
-	#endregion
 
-
-	float GetCorrespondingIndex(float _pointer, AnimationCurve _firstCurve, AnimationCurve _secondCurve)
+	void Deccelerate()
 	{
-		float value = _firstCurve.Evaluate(_pointer);
-		float index = 0;
-		float comparedValue = _secondCurve.Evaluate(index);
-		while (comparedValue < value)
-		{
-			index += 0.05f;
-			comparedValue = _secondCurve.Evaluate(index);
-		}
-		return index;
+		//print("Deccelerate");
+		deccelerationTimer += Time.deltaTime * deccelerationSpeed;
+		deccelerationTimer = Mathf.Clamp(deccelerationTimer, 0, 1);
+		movement = lastDirection * deccelerationCurve.Evaluate(deccelerationTimer) * maxDeccelerationSpeed;
+		print(deccelerationCurve.Evaluate(deccelerationTimer));
+		body.velocity = movement;
 	}
 
 	void Move()
 	{
-		body.velocity = movement;
-		movement = Vector3.zero;
+		accelerationTimer += Time.deltaTime * accelerationSpeed;
+		accelerationTimer = Mathf.Clamp(accelerationTimer, 0, 1);
+		currentSpeed = accelerationCurve.Evaluate(accelerationTimer) * maxSpeed;
+		movement = direction * currentSpeed;
+		body.velocity = Vector3.Lerp(body.velocity, movement, acceleration);
 	}
-
-	public void Strafe(StrafeDirection _direction)
-	{
-		if (_direction == StrafeDirection.Left)
-		{
-			movement += -self.right * accelerationMaxSpeed;
-		}
-		if (_direction == StrafeDirection.Right)
-		{
-			movement += self.right * accelerationMaxSpeed;
-		}
-	}
-
-
-
-
 }
