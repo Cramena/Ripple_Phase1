@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public enum RotationDirection
 {
@@ -24,20 +25,24 @@ public class ButterflyController : MonoBehaviour
 	[Header("Parameters:")]
 	public float deadzone = 0.2f;
 
+	//-----PUBLIC NON SERIALIZED
+	[System.NonSerialized] public Vector3 cameraRelativeInput;
+
 	//-----PRIVATE-----
+	//REFERENCES
+	Transform cameraTransform;
 	//SELF REFERENCES
-	ButterflyBehavior butterfly;
 	//PARAMETERS
 	Vector3 input;
 
     // Start is called before the first frame update
     void Start()
     {
-		butterfly = GetComponent<ButterflyBehavior>();
-    }
+		cameraTransform = GetComponentInChildren<CinemachineFreeLook>().transform;
+	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
     {
 		GetInput();
 	}
@@ -46,7 +51,7 @@ public class ButterflyController : MonoBehaviour
 	{
 		input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 		input = input.normalized * (Mathf.Clamp(input.magnitude - deadzone, 0, 1) / (1 - deadzone));
-		butterfly.direction = input;
+		cameraRelativeInput = cameraTransform.TransformDirection(input);
 		#region Old code
 		/*//Move forward
 		if (Input.GetKeyDown(KeyCode.Z))

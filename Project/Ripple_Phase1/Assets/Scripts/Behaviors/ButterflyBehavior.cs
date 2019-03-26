@@ -21,15 +21,18 @@ public class ButterflyBehavior : MonoBehaviour
 	public float turnSpeed = 1;
 
 	//-----PUBLIC NON SERIALIZED-----
-	[System.NonSerialized] public Vector3 direction;
 
 	//-----PRIVATE-----
+	//REFERENCES
+	ButterflyController controller;
 	//SELF REFERENCES
 	Rigidbody body;
 	Transform self;
 	//PARAMETERS
 	MoveState moveState;
 	Quaternion turnRotation;
+	Vector3 startDirection;
+	Vector3 direction;
 	Vector3 movement;
 	Vector3 lastDirection;
 	float currentSpeed;
@@ -44,10 +47,12 @@ public class ButterflyBehavior : MonoBehaviour
 	{
 		body = GetComponent<Rigidbody>();
 		self = transform;
+		controller = GetComponent<ButterflyController>();
 	}
 
 	private void Update()
 	{
+		GetInput();
 		CheckState();
 	}
 
@@ -76,6 +81,11 @@ public class ButterflyBehavior : MonoBehaviour
 		}
 	}
 
+	void GetInput()
+	{
+		direction = controller.cameraRelativeInput;
+	}
+
 	void CheckState()
 	{
 		if (body.velocity.magnitude == 0 && direction.magnitude == 0 && moveState != MoveState.Idle)
@@ -96,6 +106,7 @@ public class ButterflyBehavior : MonoBehaviour
 	void StartMoving()
 	{
 		moveState = MoveState.Moving;
+		startDirection = controller.cameraRelativeInput;
 		accelerationTimer = 0;
 	}
 
@@ -120,11 +131,9 @@ public class ButterflyBehavior : MonoBehaviour
 
 	void Deccelerate()
 	{
-		//print("Deccelerate");
 		deccelerationTimer += Time.deltaTime * deccelerationSpeed;
 		deccelerationTimer = Mathf.Clamp(deccelerationTimer, 0, 1);
 		movement = lastDirection * deccelerationCurve.Evaluate(deccelerationTimer) * maxDeccelerationSpeed;
-		print(deccelerationCurve.Evaluate(deccelerationTimer));
 		body.velocity = movement;
 	}
 
