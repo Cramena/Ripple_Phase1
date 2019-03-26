@@ -470,12 +470,12 @@ PrefabInstance:
     - target: {fileID: 508738591360060696, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000034873334
+      value: -0.000000034873363
       objectReference: {fileID: 0}
     - target: {fileID: 508738591360060696, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000008669876
+      value: 0.000000008670071
       objectReference: {fileID: 0}
     - target: {fileID: 508738591915374320, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
@@ -505,12 +505,12 @@ PrefabInstance:
     - target: {fileID: 508738592708223542, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000022258964
+      value: -0.00000004199447
       objectReference: {fileID: 0}
     - target: {fileID: 508738592708223542, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000047817226
+      value: 0.000000008780821
       objectReference: {fileID: 0}
     - target: {fileID: 508738592708223542, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
@@ -556,6 +556,26 @@ PrefabInstance:
         type: 3}
       propertyPath: deccelerationCurve.m_Curve.Array.data[1].inWeight
       value: 0.20168066
+      objectReference: {fileID: 0}
+    - target: {fileID: 508738592010279514, guid: d00b868cb37eaef478ce17f8c61d6906,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 508738592010279514, guid: d00b868cb37eaef478ce17f8c61d6906,
+        type: 3}
+      propertyPath: acceleration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 508738591073258780, guid: d00b868cb37eaef478ce17f8c61d6906,
+        type: 3}
+      propertyPath: m_YAxis.m_InputAxisName
+      value: Vertical2
+      objectReference: {fileID: 0}
+    - target: {fileID: 508738591073258780, guid: d00b868cb37eaef478ce17f8c61d6906,
+        type: 3}
+      propertyPath: m_XAxis.m_InputAxisName
+      value: Horizontal2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d00b868cb37eaef478ce17f8c61d6906, type: 3}
