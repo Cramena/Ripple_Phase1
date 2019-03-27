@@ -106,8 +106,13 @@ public class ButterflyBehavior : MonoBehaviour
 	void StartMoving()
 	{
 		moveState = MoveState.Moving;
-		startDirection = controller.cameraRelativeInput;
 		accelerationTimer = 0;
+		InitializeCamera();
+	}
+
+	public void InitializeCamera()
+	{
+		startDirection = controller.cameraRelativeInput;
 	}
 
 	void StartDeccelerating()

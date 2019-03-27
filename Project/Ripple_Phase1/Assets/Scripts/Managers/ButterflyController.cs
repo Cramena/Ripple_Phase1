@@ -21,6 +21,10 @@ public enum MoveDirection
 public class ButterflyController : MonoBehaviour
 {
 	//-----PUBLIC-----
+	[Header("References")]
+	public CinemachineFreeLook freelookCam;
+	public CinemachineVirtualCamera lockOnCam;
+	[Space()]
 	//PARAMETERS
 	[Header("Parameters:")]
 	public float deadzone = 0.2f;
@@ -32,12 +36,15 @@ public class ButterflyController : MonoBehaviour
 	//REFERENCES
 	Transform cameraTransform;
 	//SELF REFERENCES
+	ButterflyBehavior butterfly;
 	//PARAMETERS
 	Vector3 input;
+	bool lockOn;
 
     // Start is called before the first frame update
     void Start()
     {
+		butterfly = GetComponent<ButterflyBehavior>();
 		cameraTransform = GetComponentInChildren<CinemachineFreeLook>().transform;
 	}
 
@@ -52,6 +59,27 @@ public class ButterflyController : MonoBehaviour
 		input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 		input = input.normalized * (Mathf.Clamp(input.magnitude - deadzone, 0, 1) / (1 - deadzone));
 		cameraRelativeInput = cameraTransform.TransformDirection(input);
+
+		if (Input.GetButtonDown("Fire1"))
+		{
+			if (lockOn)
+			{
+				lockOn = false;
+				cameraTransform = freelookCam.transform;
+				freelookCam.enabled = true;
+				lockOnCam.enabled = false;
+				
+				butterfly.InitializeCamera();
+			}
+			else
+			{
+				cameraTransform = lockOnCam.transform;
+				lockOn = true;
+				freelookCam.enabled = false;
+				lockOnCam.enabled = true;
+				butterfly.InitializeCamera();
+			}
+		}
 		#region Old code
 		/*//Move forward
 		if (Input.GetKeyDown(KeyCode.Z))
