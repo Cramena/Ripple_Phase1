@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 508738591121660710}
   - component: {fileID: 508738591121660709}
   - component: {fileID: 508738591121660708}
+  - component: {fileID: 5351739064483496858}
+  - component: {fileID: 508738592010279516}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -528,7 +530,7 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 508738592010279510}
+  m_GameObject: {fileID: 508738591121660706}
   serializedVersion: 6
   lengthInSec: 5
   simulationSpeed: 1
@@ -5395,11 +5397,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 508738591348379653}
     m_Modifications:
-    - target: {fileID: 1526704829938507390, guid: f2c5d084f4ae156438f4e8d24a142abd,
-        type: 3}
-      propertyPath: m_Name
-      value: CM_FreeLookGameplay
-      objectReference: {fileID: 0}
     - target: {fileID: 1526704829938507384, guid: f2c5d084f4ae156438f4e8d24a142abd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5592,11 +5589,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2c5d084f4ae156438f4e8d24a142abd, type: 3}
---- !u!4 &508738591073258781 stripped
+--- !u!4 &6988552657411085485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1526704829938507384, guid: f2c5d084f4ae156438f4e8d24a142abd,
     type: 3}
-  m_PrefabInstance: {fileID: 1306209890899841893}
+  m_PrefabInstance: {fileID: 8490308295825951445}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &508738591073258780 stripped
 MonoBehaviour:
