@@ -122,7 +122,7 @@ public class Follow : MonoBehaviour
 	}
 	void Move()
 	{
-		body.velocity = speed * direction ;
+		body.velocity = speed * direction;
 	}
 
 	private void FixedUpdate()
