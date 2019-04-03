@@ -144,8 +144,9 @@ MonoBehaviour:
   turnSpeed: 0.2
   rotationOffset: {x: 45, y: 0, z: 0}
   randomTurnSpeed: 1
-  minTurnSpeed: 0.1
-  maxTurnSpeed: 1
+  minTurnSpeed: 0.05
+  maxTurnSpeed: 0.5
+  targetBody: {fileID: 3238649445250260259}
 --- !u!1001 &9138792205376762090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -218,6 +219,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 981f47bb2a52d4242b67e63b3725411c, type: 2}
+    - target: {fileID: 877975651988288466, guid: 03eff3e076856f84d9a9d71b008db7b5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2762be56db78ba84da16992a20afcfaa, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03eff3e076856f84d9a9d71b008db7b5, type: 3}
 --- !u!1 &8285692179669814840 stripped
