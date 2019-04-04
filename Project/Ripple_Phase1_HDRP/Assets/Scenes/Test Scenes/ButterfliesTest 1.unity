@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -222,6 +222,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButterflyMover (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
       propertyPath: target
@@ -326,6 +331,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ButterflyMover (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
@@ -432,6 +442,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButterflyMover (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
       propertyPath: target
@@ -536,6 +551,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ButterflyMover (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
@@ -837,6 +857,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 1
+  clearColorMode: 0
+  backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
+  clearDepth: 1
+  renderingPath: 0
+  volumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  volumeAnchorOverride: {fileID: 0}
+  aperture: 8
+  shutterSpeed: 0.005
+  iso: 400
+  m_FrameSettings:
+    overrides: 0
+    enableShadow: 1
+    enableContactShadows: 1
+    enableShadowMask: 1
+    enableSSR: 0
+    enableSSAO: 1
+    enableSubsurfaceScattering: 1
+    enableTransmission: 1
+    enableAtmosphericScattering: 1
+    enableVolumetrics: 1
+    enableReprojectionForVolumetrics: 1
+    enableLightLayers: 1
+    diffuseGlobalDimmer: 1
+    specularGlobalDimmer: 1
+    shaderLitMode: 1
+    enableDepthPrepassWithDeferredRendering: 0
+    enableTransparentPrepass: 1
+    enableMotionVectors: 1
+    enableObjectMotionVectors: 1
+    enableDecals: 1
+    enableRoughRefraction: 1
+    enableTransparentPostpass: 1
+    enableDistortion: 1
+    enablePostprocess: 1
+    enableOpaqueObjects: 1
+    enableTransparentObjects: 1
+    enableRealtimePlanarReflection: 1
+    enableMSAA: 0
+    enableAsyncCompute: 1
+    runLightListAsync: 1
+    runSSRAsync: 1
+    runSSAOAsync: 1
+    runContactShadowsAsync: 1
+    runVolumeVoxelizationAsync: 1
+    lightLoopSettings:
+      overrides: 0
+      enableTileAndCluster: 1
+      enableComputeLightEvaluation: 1
+      enableComputeLightVariants: 1
+      enableComputeMaterialVariants: 1
+      enableFptlForForwardOpaque: 1
+      enableBigTilePrepass: 1
+      isFptlEnabled: 1
 --- !u!1001 &534494863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -903,6 +979,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ButterflyMover (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
@@ -1046,6 +1127,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButterflyMover (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
       propertyPath: target
@@ -1150,6 +1236,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ButterflyMover (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
@@ -1292,6 +1383,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ButterflyMover (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
@@ -1467,43 +1563,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButterflyMover
       objectReference: {fileID: 0}
-    - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 194380724}
-    - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
-        type: 3}
-      propertyPath: randomSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
-        type: 3}
-      propertyPath: minSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
-        type: 3}
-      propertyPath: randomAcceleration
-      value: 1
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8654058688772350654, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 194380724}
-    - target: {fileID: 7244594336955117366, guid: e7eef1de5d8807947b0729ff7188cd86,
-        type: 3}
+    - target: {fileID: 1871397969, guid: e7eef1de5d8807947b0729ff7188cd86, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 194380724}
-    m_RemovedComponents:
-    - {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7eef1de5d8807947b0729ff7188cd86, type: 3}
 --- !u!1 &958543624 stripped
 GameObject:
@@ -1609,6 +1683,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButterflyMover (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
       propertyPath: target
@@ -1696,7 +1775,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1be181bb6f3aede42abd59bc3ee6c142, type: 2}
+  - {fileID: 2100000, guid: 064b859efb708254ab613bbf81b1b19c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1879,6 +1958,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButterflyMover (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
       propertyPath: target
@@ -1954,6 +2038,33 @@ MonoBehaviour:
   minRandomDrag: 0
   maxRandomDrag: 0
   movingDrag: 0.5
+--- !u!1 &1207105989 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 508738592010279510, guid: d00b868cb37eaef478ce17f8c61d6906,
+    type: 3}
+  m_PrefabInstance: {fileID: 508738591500005760}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1207105993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207105989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28be87a111787d644bd4432ebaa2f29c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 5506297674007081274, guid: 666c042005be3894d9d52aff292abf2c,
+    type: 3}
+  butterflyPrefab: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+    type: 3}
+  butterfliesNumber: 50
+  spawnRadius: 1
+  randomRadius: 1
+  minRadius: 0.05
+  maxRadius: 1
 --- !u!1 &1241785049 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
@@ -2057,6 +2168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ButterflyMover (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
@@ -2193,6 +2309,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButterflyMover (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
       propertyPath: target
@@ -2297,6 +2418,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ButterflyMover (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
@@ -2440,6 +2566,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButterflyMover (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
       propertyPath: target
@@ -2574,6 +2705,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ButterflyMover (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
@@ -2791,6 +2927,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButterflyMover (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
       propertyPath: target
@@ -2842,43 +2983,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1870806673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a5ea4a30a83ee49a77e152a8adca13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 194380724}
-  offset: {x: 0, y: 0, z: 0}
-  followSpeed: 10
-  randomSpeed: 1
-  minSpeed: 0.1
-  maxSpeed: 15
-  distanceBeforeFollow: 1
-  randomDistanceBeforeFollow: 1
-  minDistanceBeforeFollow: 0.5
-  maxDistanceBeforeFollow: 2
-  maxVelocity: 20
-  randomMaxVelocity: 1
-  minMaxVelocity: 20
-  maxMaxVelocity: 60
-  drag: 1
-  randomDrag: 0
-  minRandomDrag: 0
-  maxRandomDrag: 0
-  movingDrag: 0.5
---- !u!1 &1871397967 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
-    type: 3}
-  m_PrefabInstance: {fileID: 858863429}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1871397969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871397967}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1a5ea4a30a83ee49a77e152a8adca13, type: 3}
@@ -3007,6 +3111,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButterflyMover (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
       propertyPath: target
@@ -3111,6 +3220,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ButterflyMover (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075607695430881034, guid: e7eef1de5d8807947b0729ff7188cd86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 34218079956769779, guid: e7eef1de5d8807947b0729ff7188cd86,
         type: 3}
@@ -3384,32 +3498,32 @@ PrefabInstance:
     - target: {fileID: 508738591348379653, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000030038369
+      value: -0.00003003853
       objectReference: {fileID: 0}
     - target: {fileID: 508738591348379653, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000004884409
+      value: 0.000004884435
       objectReference: {fileID: 0}
     - target: {fileID: 508738591360060696, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.097818166
+      value: 0.09781817
       objectReference: {fileID: 0}
     - target: {fileID: 508738591360060696, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.07325422
+      value: 0.07325421
       objectReference: {fileID: 0}
     - target: {fileID: 508738591360060696, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.79443026
+      value: 0.79443
       objectReference: {fileID: 0}
     - target: {fileID: 508738591360060696, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.59493357
+      value: -0.5949339
       objectReference: {fileID: 0}
     - target: {fileID: 508738591915374320, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
@@ -3419,22 +3533,22 @@ PrefabInstance:
     - target: {fileID: 508738591915374320, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.1374109
+      value: 0.13741085
       objectReference: {fileID: 0}
     - target: {fileID: 508738591915374320, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.13888289
+      value: 0.1388829
       objectReference: {fileID: 0}
     - target: {fileID: 508738592708223542, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.06624916
+      value: -0.066249244
       objectReference: {fileID: 0}
     - target: {fileID: 508738592708223542, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.14363728
+      value: 0.14363731
       objectReference: {fileID: 0}
     - target: {fileID: 508738592708223542, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
@@ -3449,22 +3563,22 @@ PrefabInstance:
     - target: {fileID: 880780619676727765, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.06245646
+      value: -0.062456474
       objectReference: {fileID: 0}
     - target: {fileID: 880780619676727765, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000029377217
+      value: 0.000029362816
       objectReference: {fileID: 0}
     - target: {fileID: 880780619676727765, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000007813823
+      value: -0.00000780998
       objectReference: {fileID: 0}
     - target: {fileID: 880780619676727765, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99804777
+      value: 0.9980477
       objectReference: {fileID: 0}
     - target: {fileID: 880780619676727765, guid: d00b868cb37eaef478ce17f8c61d6906,
         type: 3}
@@ -3486,5 +3600,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: cceba980ad22024429c517c4c46c7734, type: 2}
+    - target: {fileID: 957945743567978700, guid: d00b868cb37eaef478ce17f8c61d6906,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d00b868cb37eaef478ce17f8c61d6906, type: 3}

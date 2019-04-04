@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1332033621375796080}
-  - component: {fileID: 34218079956769779}
   - component: {fileID: 3238649445250260259}
+  - component: {fileID: 1871397969}
+  - component: {fileID: 4694935320734589146}
   m_Layer: 0
   m_Name: ButterflyMover
   m_TagString: Untagged
@@ -33,36 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &34218079956769779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7075607695430881034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9c21e273b0bef04c99d98243acec4d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  offset: {x: 0, y: 0, z: 0}
-  followSpeed: 20
-  randomSpeed: 0
-  minSpeed: 0.1
-  maxSpeed: 1
-  acceleration: 1
-  randomAcceleration: 0
-  minAcceleration: 0.1
-  maxAcceleration: 2
-  distanceBeforeFollow: 0.5
-  randomDistanceBeforeFollow: 1
-  minDistanceBeforeFollow: 0
-  maxDistanceBeforeFollow: 2
-  maxDistance: 1
-  randomDistance: 1
-  minRandomDistance: 0.1
-  maxRandomDistance: 8
 --- !u!54 &3238649445250260259
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -79,6 +50,53 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1871397969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7075607695430881034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a5ea4a30a83ee49a77e152a8adca13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
+  followSpeed: 10
+  randomSpeed: 1
+  minSpeed: 0.1
+  maxSpeed: 15
+  distanceBeforeFollow: 1
+  randomDistanceBeforeFollow: 1
+  minDistanceBeforeFollow: 0.5
+  maxDistanceBeforeFollow: 2
+  maxVelocity: 20
+  randomMaxVelocity: 1
+  minMaxVelocity: 20
+  maxMaxVelocity: 60
+  drag: 1
+  randomDrag: 0
+  minRandomDrag: 0
+  maxRandomDrag: 0
+  movingDrag: 0.5
+--- !u!114 &4694935320734589146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7075607695430881034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aba7ce6a0b8903542b93643134f9f355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 1
+  randomSize: 1
+  minSize: 0.2
+  maxSize: 1.2
 --- !u!1 &7212695794502900652
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a72dcfaffe53de4890745c7e8e92cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 1
+  maxDistance: 0.2
   noiseDuration: 0.1
   noiseDurationRange: 0.05
   noiseSpeed: 0.5
@@ -219,11 +237,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 981f47bb2a52d4242b67e63b3725411c, type: 2}
-    - target: {fileID: 877975651988288466, guid: 03eff3e076856f84d9a9d71b008db7b5,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2762be56db78ba84da16992a20afcfaa, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03eff3e076856f84d9a9d71b008db7b5, type: 3}
 --- !u!1 &8285692179669814840 stripped

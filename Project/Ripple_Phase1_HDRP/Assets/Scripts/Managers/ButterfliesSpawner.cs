@@ -42,11 +42,16 @@ public class ButterfliesSpawner : MonoBehaviour
         for (int i = 0; i < butterfliesNumber; i++)
         {
             float offsetX = Random.Range(minRadius, maxRadius);
+			offsetX *= (int)Random.Range((int)0, (int)2) == 1 ? -1 : 1;
+			print((int)Random.Range((int)0, (int)2));
             float offsetY = Random.Range(minRadius, maxRadius);
-            float offsetZ = Random.Range(minRadius, maxRadius);
-            Vector3 randomOffset = new Vector3((2 * offsetX) - offsetX, (2 * offsetY) - offsetY, (2 * offsetZ) - offsetZ);
+			offsetY *= (int)Random.Range((int)0, (int)2) == 1 ? -1 : 1;
+			float offsetZ = Random.Range(minRadius, maxRadius);
+			offsetZ *= (int)Random.Range((int)0, (int)2) == 1 ? -1 : 1;
+
+			Vector3 randomOffset = new Vector3((2 * offsetX) - offsetX, (2 * offsetY) - offsetY, (2 * offsetZ) - offsetZ);
             GameObject newSpawn = Instantiate(spawnPoint, self.position + randomOffset, Quaternion.identity, self);
-            GameObject newButterfly = Instantiate(butterflyPrefab, self.position + randomOffset, Quaternion.identity, self);
+            GameObject newButterfly = Instantiate(butterflyPrefab, newSpawn.transform.position, Quaternion.identity);
             newButterfly.GetComponent<FollowAddForce>().target = newSpawn.transform;
         }
     }
