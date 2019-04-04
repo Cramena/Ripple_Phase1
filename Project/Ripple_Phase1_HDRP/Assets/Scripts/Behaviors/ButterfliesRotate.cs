@@ -9,6 +9,7 @@ public class ButterfliesRotate : MonoBehaviour
 	//REFERENCES
 	[Header("References:")]
 	public Transform target;
+    public Rigidbody targetBody;
 	[Space()]
 	[Header("Parameters:")]
 	[Range(0.01f, 1)] public float turnSpeed = 0.2f;
@@ -21,7 +22,7 @@ public class ButterfliesRotate : MonoBehaviour
 	//SELF REFERENCES
 	Transform self;
 	Quaternion trueRotationOffset;
-    public Rigidbody targetBody;
+	Quaternion tempRotation;
     
 
     // Start is called before the first frame update
@@ -44,10 +45,10 @@ public class ButterfliesRotate : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if (target == null) return;
-        //self.rotation = Quaternion.LookRotation(target.position - self.position);
-        //self.rotation = Quaternion.Slerp(self.rotation, target.rotation * trueRotationOffset, turnSpeed);
-        trueRotationOffset = Quaternion.LookRotation(targetBody.velocity);
-        self.rotation = Quaternion.Slerp(self.rotation, trueRotationOffset * trueRotationOffset, turnSpeed);
+		//if (target == null) return;
+		//self.rotation = Quaternion.LookRotation(target.position - self.position);
+		//self.rotation = Quaternion.Slerp(self.rotation, target.rotation * trueRotationOffset, turnSpeed);
+		tempRotation = Quaternion.LookRotation(targetBody.velocity.normalized);
+        self.rotation = Quaternion.Slerp(self.rotation, tempRotation * trueRotationOffset, turnSpeed);
     }
 }
