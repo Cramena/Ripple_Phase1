@@ -1,7 +1,17 @@
 fileFormatVersion: 2
 guid: f299cff2363693b4d958c2dea03f8c52
 SpeedTreeImporter:
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Branches_0_LOD0
+    second: {fileID: 2100000, guid: daf780484dd2b494dba845196744ecec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves_1_LOD0
+    second: {fileID: 2100000, guid: 3e33049f95f35824f84d991fcfb3b10b, type: 2}
   serializedVersion: 5
   mainColor: {r: 1, g: 1, b: 1, a: 1}
   hueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
