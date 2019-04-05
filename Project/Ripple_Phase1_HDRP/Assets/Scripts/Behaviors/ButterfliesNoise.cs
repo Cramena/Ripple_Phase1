@@ -38,14 +38,14 @@ public class ButterfliesNoise : MonoBehaviour
 		{
 			noiseTimer = noiseDuration + Random.Range(-noiseDurationRange, noiseDurationRange);
 			currentNoiseFrequency = noiseTimer;
-			NoiseMove();
+			UpdateNoise();
 		}
 
 		if (self.localPosition.magnitude > maxDistance)
 		{
 			StopMovement();
 		}
-		UpdateDirection();
+		LerpDirection();
 		Move();
 
 
@@ -57,7 +57,7 @@ public class ButterfliesNoise : MonoBehaviour
 		targetDirection = -self.localPosition.normalized;
 	}
 
-	void NoiseMove()
+	void UpdateNoise()
 	{
 		float xMove = Random.Range(-1f, 1f);
 		float yMove = Random.Range(-1f, 1f);
@@ -67,7 +67,7 @@ public class ButterfliesNoise : MonoBehaviour
 		targetDirection = new Vector3(xMove, yMove, zMove);
 	}
 
-	void UpdateDirection()
+	void LerpDirection()
 	{
 		noiseDirection = Vector3.Lerp(lastDirection, targetDirection, directionLerpSpeed * currentNoiseFrequency);
 	}
