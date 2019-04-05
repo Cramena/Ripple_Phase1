@@ -48,6 +48,7 @@ public class ButterfliesRotate : MonoBehaviour
 		//if (target == null) return;
 		//self.rotation = Quaternion.LookRotation(target.position - self.position);
 		//self.rotation = Quaternion.Slerp(self.rotation, target.rotation * trueRotationOffset, turnSpeed);
+		if (targetBody.velocity == Vector3.zero) return;
 		tempRotation = Quaternion.LookRotation(targetBody.velocity.normalized);
         self.rotation = Quaternion.Slerp(self.rotation, tempRotation * trueRotationOffset, turnSpeed);
     }
