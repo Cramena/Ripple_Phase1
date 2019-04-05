@@ -9,16 +9,17 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Grass_1
   m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
-  m_ShaderKeywords: _ALPHATEST_ON _DOUBLESIDED_ON _ENABLE_GEOMETRIC_SPECULAR_AA _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
+  m_ShaderKeywords: _ALPHATEST_ON _BLENDMODE_ALPHA _BLENDMODE_PRESERVE_SPECULAR_LIGHTING
+    _DOUBLESIDED_ON _ENABLE_FOG_ON_TRANSPARENT _ENABLE_GEOMETRIC_SPECULAR_AA _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
     _MATERIAL_FEATURE_TRANSMISSION _NORMALMAP_TANGENT_SPACE _NORMALMAP_TANGENT_SPACE0
     _NORMALMAP_TANGENT_SPACE1 _NORMALMAP_TANGENT_SPACE2 _NORMALMAP_TANGENT_SPACE3
-    _TERRAIN_INSTANCED_PERPIXEL_NORMAL
+    _SURFACE_TYPE_TRANSPARENT _TERRAIN_INSTANCED_PERPIXEL_NORMAL
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: 2450
+  m_CustomRenderQueue: 3000
   stringTagMap:
-    RenderType: TransparentCutout
+    RenderType: Transparent
   disabledShaderPasses:
   - DistortionVectors
   - TransparentDepthPrepass
@@ -301,7 +302,7 @@ Material:
     - _AlphaCutoffEnable: 1
     - _AlphaCutoffPostpass: 0.5
     - _AlphaCutoffPrepass: 0.297
-    - _AlphaCutoffShadow: 0.5
+    - _AlphaCutoffShadow: 0.444
     - _Anisotropy: 0
     - _BlendMode: 0
     - _CoatMask: 0
@@ -324,7 +325,7 @@ Material:
     - _DetailSmoothnessScale1: 1
     - _DetailSmoothnessScale2: 1
     - _DetailSmoothnessScale3: 1
-    - _DiffusionProfile: 0
+    - _DiffusionProfile: 2
     - _DiffusionProfile0: 0
     - _DiffusionProfile1: 0
     - _DiffusionProfile2: 0
@@ -350,7 +351,7 @@ Material:
     - _DoubleSidedEnable: 1
     - _DoubleSidedNormalMode: 1
     - _Drag: 1
-    - _DstBlend: 0
+    - _DstBlend: 10
     - _EmissiveColorMode: 1
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
@@ -493,7 +494,7 @@ Material:
     - _SubsurfaceMask2: 1
     - _SubsurfaceMask3: 1
     - _SupportDecals: 1
-    - _SurfaceType: 0
+    - _SurfaceType: 1
     - _TexWorldScale: 1
     - _TexWorldScale0: 1
     - _TexWorldScale1: 1
@@ -529,19 +530,19 @@ Material:
     - _UseMainLayerInfluence: 0
     - _UseShadowThreshold: 0
     - _VertexColorMode: 0
-    - _ZTestDepthEqualForOpaque: 3
+    - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 3
     - _ZTestModeDistortion: 4
-    - _ZWrite: 1
+    - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.16225797, g: 0.20754719, b: 0.0773407, a: 1}
     - _BaseColor0: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor1: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor2: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor3: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap0_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.16225794, g: 0.20754716, b: 0.07734067, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
