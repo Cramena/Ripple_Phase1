@@ -1,36 +1,25 @@
 fileFormatVersion: 2
-guid: ace2c8b86686d6441aba39566a477324
+guid: af184bd53b26e654b8b23319a50971b6
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cube
-    100002: //RootNode
-    100004: Rock
-    400000: Cube
-    400002: //RootNode
-    400004: Rock
-    2300000: Cube
-    2300002: Rock
-    3300000: Cube
-    3300002: Rock
-    4300000: Cube
-    4300002: Rock
+    100000: //RootNode
+    400000: //RootNode
+    2100000: No Name
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Plane001
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: CubeMat
-    second: {fileID: 2100000, guid: b2d44665a6fd68e42a45dd8a7aef8d8a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: RockMat
-    second: {fileID: 2100000, guid: f0fd7fbf4203f4c419a219f9603ba141, type: 2}
+      name: No Name
+    second: {fileID: 2100000, guid: 6ac642da72aead547b7c86244395fd3c, type: 2}
   materials:
-    importMaterials: 0
-    materialName: 2
-    materialSearch: 2
-    materialLocation: 0
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -59,6 +48,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -76,11 +66,16 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -95,7 +90,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
