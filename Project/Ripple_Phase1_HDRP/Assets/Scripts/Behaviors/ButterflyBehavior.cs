@@ -19,11 +19,13 @@ public class ButterflyBehavior : MonoBehaviour
 	public float accelerationSpeed = 1;
 	public float deccelerationSpeed = 1;
 	public float turnSpeed = 1;
+	public float height = 3;
 
 	//-----PUBLIC NON SERIALIZED-----
 
 	//-----PRIVATE-----
 	//REFERENCES
+	Terrain terrain;
 	ButterflyController controller;
 	//SELF REFERENCES
 	Rigidbody body;
@@ -35,6 +37,7 @@ public class ButterflyBehavior : MonoBehaviour
 	Vector3 direction;
 	Vector3 movement;
 	Vector3 lastDirection;
+	Vector3 terrainPosition;
 	float currentSpeed;
 	float accelerationTimer;
 	float deccelerationTimer;
@@ -45,6 +48,7 @@ public class ButterflyBehavior : MonoBehaviour
 
 	private void Start()
 	{
+		terrain = GameObject.FindObjectOfType<Terrain>();
 		body = GetComponent<Rigidbody>();
 		self = transform;
 		controller = GetComponent<ButterflyController>();
@@ -59,6 +63,14 @@ public class ButterflyBehavior : MonoBehaviour
 	private void FixedUpdate()
 	{
 		ManageState();
+		ChangeHeightToTerrain();
+	}
+
+	void ChangeHeightToTerrain()
+	{
+		terrainPosition = self.position;
+		terrainPosition.y = terrain.SampleHeight(self.position) + height;
+		self.position = terrainPosition;
 	}
 
 	void ManageState()
