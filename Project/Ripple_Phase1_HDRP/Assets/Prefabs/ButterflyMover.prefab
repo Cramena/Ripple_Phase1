@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pollenParticle: {fileID: 6993175963016296430}
+  releasePollenParticle: {fileID: 7410737994095579175}
   anim: {fileID: 8285692179677117944}
   size: 1
   randomSize: 1
@@ -266,6 +267,12 @@ Animator:
 --- !u!198 &6993175963016296430 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2296628465093691140, guid: 03eff3e076856f84d9a9d71b008db7b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 9138792205376762090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7410737994095579175 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1732682881162666189, guid: 03eff3e076856f84d9a9d71b008db7b5,
     type: 3}
   m_PrefabInstance: {fileID: 9138792205376762090}
   m_PrefabAsset: {fileID: 0}

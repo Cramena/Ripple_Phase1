@@ -9,6 +9,7 @@ public class ButterfliesBody : MonoBehaviour
 	//REFERENCES
 	[Header("References:")]
 	public ParticleSystem pollenParticle;
+	public ParticleSystem releasePollenParticle;
 	public Animator anim;
 
 	[Space()]
@@ -35,8 +36,8 @@ public class ButterfliesBody : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		ButterflyController.instance.ActivateEvent.AddListener(ActivateParticle);
-		ButterflyController.instance.DeactivateEvent.AddListener(DeactivateParticle);
+		ButterflyController.instance.ActivateEvent.AddListener(ActivatePollen);
+		ButterflyController.instance.DeactivateEvent.AddListener(DeactivatePollen);
 		self = transform;
 		//anim = GetComponent<Animator>();
 		if (randomSize)
@@ -51,13 +52,14 @@ public class ButterfliesBody : MonoBehaviour
 		anim.speed = animSpeed;
 	}
 
-	public void DeactivateParticle()
-	{
-		pollenParticle.Play();
-	}
-
-	public void ActivateParticle()
+	public void DeactivatePollen()
 	{
 		pollenParticle.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+		releasePollenParticle.Play();
+	}
+
+	public void ActivatePollen()
+	{
+		pollenParticle.Play();
 	}
 }
