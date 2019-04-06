@@ -26,17 +26,17 @@ SpeedTreeImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Branches_1_LOD0
-    second: {fileID: 2100000, guid: daf780484dd2b494dba845196744ecec, type: 2}
+    second: {fileID: 2100000, guid: e3d543f77c05d684e8ccad5cb8aa5ccd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Branches_1_LOD1
-    second: {fileID: 2100000, guid: daf780484dd2b494dba845196744ecec, type: 2}
+    second: {fileID: 2100000, guid: e3d543f77c05d684e8ccad5cb8aa5ccd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Branches_1_LOD2
-    second: {fileID: 2100000, guid: 833b5f16124a55f41a64cb6eed1df6d3, type: 2}
+    second: {fileID: 2100000, guid: e3d543f77c05d684e8ccad5cb8aa5ccd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -59,7 +59,7 @@ SpeedTreeImporter:
   bestWindQuality: 4
   hasBillboard: 1
   lODSettings:
-  - height: 0.5
+  - height: 0.86363244
     castShadows: 1
     receiveShadows: 1
     useLightProbes: 1
@@ -68,7 +68,7 @@ SpeedTreeImporter:
     enableHue: 1
     enableSubsurface: 1
     windQuality: 2
-  - height: 0.25
+  - height: 0.7075037
     castShadows: 1
     receiveShadows: 1
     useLightProbes: 1
