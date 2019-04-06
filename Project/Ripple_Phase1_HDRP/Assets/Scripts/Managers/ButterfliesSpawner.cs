@@ -24,7 +24,10 @@ public class ButterfliesSpawner : MonoBehaviour
     public float maxRadius;
 
     //-----PRIVATE-----
+	//SELF REFERENCES
     Transform self;
+	ButterflyController controller;
+	
 
     // Start is called before the first frame update
     void Start()
@@ -52,13 +55,8 @@ public class ButterfliesSpawner : MonoBehaviour
 			Vector3 randomOffset = new Vector3((2 * offsetX) - offsetX, (2 * offsetY) - offsetY, (2 * offsetZ) - offsetZ);
             GameObject newSpawn = Instantiate(spawnPoint, self.position + randomOffset, Quaternion.identity, self);
             GameObject newButterfly = Instantiate(butterflyPrefab, newSpawn.transform.position, Quaternion.identity);
-            newButterfly.GetComponent<FollowAddForce>().target = newSpawn.transform;
+			FollowAddForce newSpawnScript = newButterfly.GetComponent<FollowAddForce>();
+			newSpawnScript.target = newSpawn.transform;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
