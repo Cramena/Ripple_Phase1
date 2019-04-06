@@ -5,7 +5,22 @@ SpeedTreeImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Billboard
+    second: {fileID: 2100000, guid: b3eb340d810356b468a6790e763a4224, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Branches_0_LOD0
+    second: {fileID: 2100000, guid: e3d543f77c05d684e8ccad5cb8aa5ccd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Branches_0_LOD1
+    second: {fileID: 2100000, guid: e3d543f77c05d684e8ccad5cb8aa5ccd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Branches_0_LOD2
     second: {fileID: 2100000, guid: e3d543f77c05d684e8ccad5cb8aa5ccd, type: 2}
   - first:
       type: UnityEngine:Material
@@ -15,16 +30,36 @@ SpeedTreeImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Branches_1_LOD1
+    second: {fileID: 2100000, guid: daf780484dd2b494dba845196744ecec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Branches_1_LOD2
+    second: {fileID: 2100000, guid: 833b5f16124a55f41a64cb6eed1df6d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Leaves_2_LOD0
+    second: {fileID: 2100000, guid: 3e33049f95f35824f84d991fcfb3b10b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves_2_LOD1
+    second: {fileID: 2100000, guid: 3e33049f95f35824f84d991fcfb3b10b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves_2_LOD2
     second: {fileID: 2100000, guid: 3e33049f95f35824f84d991fcfb3b10b, type: 2}
   serializedVersion: 5
   mainColor: {r: 1, g: 1, b: 1, a: 1}
   hueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
   alphaTestRef: 0.33
   bestWindQuality: 4
-  hasBillboard: 0
+  hasBillboard: 1
   lODSettings:
-  - height: 0.01
+  - height: 0.5
     castShadows: 1
     receiveShadows: 1
     useLightProbes: 1
@@ -33,13 +68,40 @@ SpeedTreeImporter:
     enableHue: 1
     enableSubsurface: 1
     windQuality: 2
+  - height: 0.25
+    castShadows: 1
+    receiveShadows: 1
+    useLightProbes: 1
+    reflectionProbeUsage: 1
+    enableBump: 1
+    enableHue: 1
+    enableSubsurface: 1
+    windQuality: 2
+  - height: 0.07571703
+    castShadows: 0
+    receiveShadows: 1
+    useLightProbes: 1
+    reflectionProbeUsage: 1
+    enableBump: 1
+    enableHue: 1
+    enableSubsurface: 1
+    windQuality: 2
+  - height: 0.01
+    castShadows: 1
+    receiveShadows: 1
+    useLightProbes: 0
+    reflectionProbeUsage: 0
+    enableBump: 1
+    enableHue: 1
+    enableSubsurface: 1
+    windQuality: 1
   enableSmoothLODTransition: 1
   animateCrossFading: 1
   billboardTransitionCrossFadeWidth: 0.25
   fadeOutWidth: 0.25
   scaleFactor: 0.3048
   materialVersion: 3
-  materialLocation: 0
+  materialLocation: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
