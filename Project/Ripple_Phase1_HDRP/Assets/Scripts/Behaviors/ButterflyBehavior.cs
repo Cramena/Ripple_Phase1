@@ -12,6 +12,10 @@ enum MoveState
 public class ButterflyBehavior : MonoBehaviour
 {
 	//-----PUBLIC-----
+	
+
+	//PARAMETERS
+	[Header("Pamrameters:")]
 	public AnimationCurve accelerationCurve;
 	public AnimationCurve deccelerationCurve;
 	public float acceleration;
@@ -162,4 +166,7 @@ public class ButterflyBehavior : MonoBehaviour
 		movement = direction * currentSpeed;
 		body.velocity = Vector3.Lerp(body.velocity, movement, acceleration);
 	}
+
+	
+
 }
